@@ -12,11 +12,11 @@ class ListAllUsersUseCase {
     const userIsAdmin = this.usersRepository.findById(user_id);
 
     if (!userIsAdmin) {
-      throw new Error("Mensagem do erro");
+      throw new Error("User not found.");
     }
 
     if (!userIsAdmin.admin) {
-      throw new Error("Mensagem do erro");
+      throw new Error("Only admins can access the list.");
     }
 
     const users = this.usersRepository.list();
